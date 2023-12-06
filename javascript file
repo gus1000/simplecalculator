@@ -1,0 +1,121 @@
+/* enter the input first
+if a button is clicked , perform an operation.
+
+the button is clicked, and the operation call back function gets called with the
+input .
+
+5 
+
+
+and then enter the second input
+
+*/
+
+const plusButton = document.querySelector(".plus-button");
+const minusButton = document.querySelector(".minus-button");
+const timesButton = document.querySelector(".times-button");
+const divideButton = document.querySelector(".division-button");
+const inputOne = document.querySelector(".input-one");
+const inputTwo = document.querySelector(".input-two");
+
+const output = document.querySelector(".output");
+
+// inputOne.addEventListener("keypress", function (e1) {
+//   console.log(e1.key)
+//   plusButton.addEventListener("click", function () {
+//     console.log("plus click")
+//     inputTwo.addEventListener("keypress", function (e2) {
+//       console.log(e2.key)
+//       output.addEventListener("keypress", function (e3) {
+//         if (e3.key === "Enter") {
+//           console.log(add(e1.key, e2.key))
+//         }
+//       });
+//     });
+//   });
+// });
+
+//create an event listener for inputs
+
+let inputValueOne , inputValueTwo;
+
+inputOne.addEventListener("input" , function(e1) {
+  
+    inputValueOne = parseInt( e1.target.value);
+    console.log(inputValueOne)
+
+  
+})
+
+inputTwo.addEventListener("input" , function( e2) {
+  
+
+  
+    inputValueTwo = parseInt(e2.target.value);
+  console.log(inputValueTwo)
+  
+})
+
+//create an event listener for operation buttons
+
+
+
+
+
+plusButton.addEventListener("click" , function() {
+  
+
+  
+  add(inputValueOne, inputValueTwo);
+})
+
+minusButton.addEventListener("click" , function() {
+  
+  subtract(inputValueOne, inputValueTwo);
+})
+
+
+timesButton.addEventListener("click" , function() {
+  
+  times(inputValueOne, inputValueTwo);
+})
+
+
+divideButton.addEventListener("click" , function() {
+  
+  divide(inputValueOne, inputValueTwo);
+})
+
+
+
+
+
+
+//functions
+
+
+
+
+
+function add(a, b) {
+  const sum = a + b;
+  output.innerText = sum;
+}
+
+function subtract(a, b) {
+  const difference = a - b;
+    output.innerText = difference;
+
+}
+
+function times(a, b) {
+  const product = a * b;
+      output.innerText = product;
+
+}
+
+function divide(a, b) {
+  const quotient = a / b;
+        output.innerText = quotient;
+
+}
