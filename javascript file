@@ -16,201 +16,149 @@ const minusButton = document.querySelector(".minus-button");
 const timesButton = document.querySelector(".times-button");
 const divideButton = document.querySelector(".division-button");
 const inputOne = document.querySelector(".input-one");
-const inputTwo = document.querySelector(".input-two");
-const equalsButton = document.querySelector(".equals-button");
-const clearButton = document.querySelector(".clear-button");
-
+const inputTwo = document.querySelector(".input-two"); // const equalsButton = document.querySelector(".equals-button");
+// const clearButton = document.querySelector(".clear-button");
 
 const output = document.querySelector(".output");
+const operationsContainer = document.querySelector(".operations-container");
 
+///////
 
-
-/////////
-///
-//
 //   simple calculator: enter two inputs and press the operation
 // Ignore the equals and CC button
-/////////
-///
-//
-/////////
-///
-//
+///////
 
-/////////
-///
-//
+///////
 
+///////
 
-// // create an event listener for inputs
+// create an event listener for inputs
 
+let inputValueOne, inputValueTwo;
+//You just enter two values into the two input boxes
 
+inputOne.addEventListener("input", function (e1) {
+  if (typeof e1.target.value !== "number") {
+    inputValueOne = parseInt(e1.target.value);
+  }
+});
 
+inputTwo.addEventListener("input", function (e2) {
+  if (typeof e2.target.value !== "number") {
+    inputValueTwo = parseInt(e2.target.value);
+  }
+});
 
-// let inputValueOne, inputValueTwo;
+//create  the  event listeners for the operation buttons
 
-// inputOne.addEventListener("input", function (e1) {
-//   if (typeof e1.target.value !== "number") {
-//     inputValueOne = parseInt(e1.target.value);
-//     console.log(inputValueOne);
-//   }
-// });
+operationsContainer.addEventListener("click", function (e) {
+  if (e.target === plusButton) {
+    const sum = inputValueOne + inputValueTwo;
+    output.innerText = sum;
+  } else if (e.target === minusButton) {
+    const difference = inputValueOne - inputValueTwo;
+    output.innerText = difference;
+  } else if (e.target === timesButton) {
+    const product = inputValueOne * inputValueTwo;
+    output.innerText = product;
+  } else if (e.target ===  divideButton) {
+    
 
-// inputTwo.addEventListener("input", function (e2) {
-//   if (typeof e2.target.value !== "number") {
-//     inputValueTwo = parseInt(e2.target.value);
-//     console.log(inputValueTwo);
-//   }
-// });
+    const quotient = inputValueOne / inputValueTwo;
 
-// //create an event listener for operation buttons
-
-// plusButton.addEventListener("click", function () {
-//   const sum = inputValueOne + inputValueTwo;
-
-//     output.innerText = sum;
- 
-// });
-
-// minusButton.addEventListener("click", function () {
- 
-//     const difference = inputValueOne - inputValueTwo;
-
-//     output.innerText = difference;
-
-// });
-
-// timesButton.addEventListener("click", function () {
-
-//     const product = inputValueOne * inputValueTwo;
-
-//     output.innerText = product;
-
-// });
-
-// divideButton.addEventListener("click", function () {
-
-//     const quotient = inputValueOne / inputValueTwo;
-
-//     output.innerText = quotient;
-
-// });
+    output.innerText = quotient;
+  }
+});
 
 //maybe add an equal button that is nested in each function
 //you click on it last afterwards
 
-
-
-
-
-
-
-
-
-
-
-
 // Another way to create a calculator :
 
+// isButtonPressed = false;
+// let inputValueOne;
+// inputOne.addEventListener("input", function (e1) {
+//   if (typeof e1.target.value !== "number") {
+//      inputValueOne = parseInt(e1.target.value);
+//     console.log(inputValueOne);
+//   }
+// });
 
+// plusButton.addEventListener("click", function () {
+//   isButtonPressed = true;
 
-isButtonPressed = false;
-let inputValueOne;
-inputOne.addEventListener("input", function (e1) {
-  if (typeof e1.target.value !== "number") {
-     inputValueOne = parseInt(e1.target.value);
-    console.log(inputValueOne);
-  }
-});
+//   if (isButtonPressed === true) {
+//     inputTwo.addEventListener("input", function (e2) {
+//       const inputValueTwo = parseInt(e2.target.value);
 
-plusButton.addEventListener("click", function () {
-  isButtonPressed = true;
+//       const sum =  inputValueOne + inputValueTwo
 
-  if (isButtonPressed === true) {
-    inputTwo.addEventListener("input", function (e2) {
-      const inputValueTwo = parseInt(e2.target.value);
-      
-      const sum =  inputValueOne + inputValueTwo
+//       equalsButton.addEventListener("click", function () {
 
-      equalsButton.addEventListener("click", function () {
-        
-        output.innerText = sum ;
-        
-      });
-    });
-  }
-});
+//         output.innerText = sum ;
 
+//       });
+//     });
+//   }
+// });
 
-minusButton.addEventListener("click", function () {
-  isButtonPressed = true;
+// minusButton.addEventListener("click", function () {
+//   isButtonPressed = true;
 
-  if (isButtonPressed === true) {
-    inputTwo.addEventListener("input", function (e2) {
-      const inputValueTwo = parseInt(e2.target.value);
-      
-      const difference =  inputValueOne - inputValueTwo
+//   if (isButtonPressed === true) {
+//     inputTwo.addEventListener("input", function (e2) {
+//       const inputValueTwo = parseInt(e2.target.value);
 
-      equalsButton.addEventListener("click", function () {
-        
-        output.innerText = difference ;
-        
-        
-      });
-    });
-  }
-});
+//       const difference =  inputValueOne - inputValueTwo
 
+//       equalsButton.addEventListener("click", function () {
 
-timesButton.addEventListener("click", function () {
-  isButtonPressed = true;
+//         output.innerText = difference ;
 
-  if (isButtonPressed === true) {
-    inputTwo.addEventListener("input", function (e2) {
-      const inputValueTwo = parseInt(e2.target.value);
-      
-      const product =  inputValueOne * inputValueTwo
+//       });
+//     });
+//   }
+// });
 
-      equalsButton.addEventListener("click", function () {
-        
-        output.innerText = product ;
-        
-      });
-    });
-  }
-});
+// timesButton.addEventListener("click", function () {
+//   isButtonPressed = true;
 
+//   if (isButtonPressed === true) {
+//     inputTwo.addEventListener("input", function (e2) {
+//       const inputValueTwo = parseInt(e2.target.value);
 
-divideButton.addEventListener("click", function () {
-  isButtonPressed = true;
+//       const product =  inputValueOne * inputValueTwo
 
-  if (isButtonPressed === true) {
-    inputTwo.addEventListener("input", function (e2) {
-      const inputValueTwo = parseInt(e2.target.value);
-      
-      const quotient =  inputValueOne / inputValueTwo
+//       equalsButton.addEventListener("click", function () {
 
-      equalsButton.addEventListener("click", function () {
-        
-        output.innerText = quotient ;
-    
-        
-        
-      });
-    });
-  }
-});
+//         output.innerText = product ;
 
+//       });
+//     });
+//   }
+// });
 
+// divideButton.addEventListener("click", function () {
+//   isButtonPressed = true;
 
-clearButton.addEventListener("click" , function() {
-      inputOne.value = ` `;
-      inputTwo.value = ` `;
-      output.innerHTML = ` ` ;
-  
-})
+//   if (isButtonPressed === true) {
+//     inputTwo.addEventListener("input", function (e2) {
+//       const inputValueTwo = parseInt(e2.target.value);
 
+//       const quotient =  inputValueOne / inputValueTwo
 
+//       equalsButton.addEventListener("click", function () {
 
+//         output.innerText = quotient ;
 
+//       });
+//     });
+//   }
+// });
 
+// clearButton.addEventListener("click" , function() {
+//       inputOne.value = ` `;
+//       inputTwo.value = ` `;
+//       output.innerHTML = ` ` ;
+
+// })
