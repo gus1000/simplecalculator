@@ -51,24 +51,48 @@ inputTwo.addEventListener("input", function (e2) {
 
 //create  the  event listeners for the operation buttons
 
-operationsContainer.addEventListener("click", function (e) {
-  if (e.target === plusButton) {
-    const sum = inputValueOne + inputValueTwo;
-    output.innerText = sum;
-  } else if (e.target === minusButton) {
-    const difference = inputValueOne - inputValueTwo;
-    output.innerText = difference;
-  } else if (e.target === timesButton) {
-    const product = inputValueOne * inputValueTwo;
-    output.innerText = product;
-  } else if (e.target ===  divideButton) {
+// operationsContainer.addEventListener("click", function (e) {
+//   if (e.target === plusButton) {
+//     const sum = inputValueOne + inputValueTwo;
+//     output.innerText = sum;
+//   } else if (e.target === minusButton) {
+//     const difference = inputValueOne - inputValueTwo;
+//     output.innerText = difference;
+//   } else if (e.target === timesButton) {
+//     const product = inputValueOne * inputValueTwo;
+//     output.innerText = product;
+//   } else if (e.target ===  divideButton) {
     
 
-    const quotient = inputValueOne / inputValueTwo;
+//     const quotient = inputValueOne / inputValueTwo;
 
-    output.innerText = quotient;
-  }
-});
+//     output.innerText = quotient;
+//   }
+// });
+
+
+plusButton.addEventListener("click", function() {
+  const sum = inputValueOne + inputValueTwo
+  output.innerText = sum;
+})
+
+
+minusButton.addEventListener("click", function() {
+  const difference = inputValueOne - inputValueTwo
+  output.innerText = difference;
+})
+
+
+timesButton.addEventListener("click", function() {
+  const product = inputValueOne * inputValueTwo
+  output.innerText = product;
+})
+
+
+divideButton.addEventListener("click", function() {
+  const quotient = inputValueOne / inputValueTwo
+  output.innerText = quotient;
+})
 
 //maybe add an equal button that is nested in each function
 //you click on it last afterwards
